@@ -1,0 +1,8 @@
+﻿[
+  {
+    "query": "shoes",
+    "maxPrice": 220,
+    "limit": 5,
+    "budgetPerItem": 220
+  }
+]
