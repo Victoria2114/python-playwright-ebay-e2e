@@ -1,4 +1,4 @@
-import re
+
 from src.utils.price_parser import clean_price
 
 class CartPage:

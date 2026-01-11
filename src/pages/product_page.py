@@ -69,9 +69,6 @@ class ProductPage:
                 print("No visible variant selectors to click")
                 break
     
-
-        # After selecting, eBay may add new selectors (e.g., Size)
-        # Loop again to detect new ones
     def screenshot(self, name: str):
         self.page.screenshot(path=f"logs/{name}.png")
 
