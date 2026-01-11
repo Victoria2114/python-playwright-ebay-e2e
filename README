@@ -1,0 +1,85 @@
+📘 E2E Automation Project — Playwright + Pytest + Allure
+
+Automated end‑to‑end test for eBay, built with:
+- Playwright (Python)
+- Pytest
+- Allure reporting
+- Page Object Model
+
+The test flow includes:
+1 Opening the eBay homepage
+2 Performing an advanced search
+3 - Opening several product pages
+  - Selecting random item variations
+  - Adding items to the cart
+4 Verifying that the total does not exceed a defined limit
+
+🚀 How to Run the Project
+Prerequisites
+Make sure the following are installed:
+- Python 3.10+
+- pip
+- Playwright
+Install dependencies
+pip install -r requirements.txt
+
+Install Playwright browsers
+playwright install
+
+Run tests
+pytest
+
+📊 Reports
+Allure Results
+Allure is already integrated via:
+--alluredir=allure-results
+
+After running tests, a folder will appear:
+allure-results/
+
+This is sufficient for the assignment.
+Installing Allure CLI is optional.
+Optional: HTML Report
+pytest --html=report.html
+
+
+Optional: JUnit XML Report
+pytest --junitxml=report.xml
+
+🧱 Project Architecture
+The project follows the Page Object Model (POM) structure:
+src/
+ └── pages/
+      ├── home_page.py
+      ├── advancedSearch_page.py
+      ├── base_page.py
+      ├── product_page.py
+      └── cart_page.py
+ └── utils/
+      └── helpers.py
+tests/
+ └── test_e2e_search_add_cart.py
+
+
+Component Overview
+|  |  | 
+| home_page.py |  | 
+| advancedSearch_page.py |  | 
+| base_page.py |  | 
+| product_page.py |  | 
+| cart_page.py |  | 
+| helpers.py |  | 
+| test_e2e_search_add_cart.py |  | 
+
+⚙️ Assumptions & Limitations
+- Test runs in Guest mode (no login)
+- Currency may vary (USD, ILS, etc.)
+- Normalized using clean_price()
+- Random product variations are selected when availabl
+
+
+👩‍💻 Author
+Victoria Ainbinder
+Automation QA — Playwright & Python
+
+
