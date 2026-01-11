@@ -1,0 +1,32 @@
+Bugs:
+1. Incorect usage of sync_playwright():
+sync_playwright() is started manually instead of being used as a context manager.
+Playwright documentation recommends always using it inside a with block.
+2. Mixing Playwright and Selenium imports
+3. Use of time.sleep() instead of Playwright waits
+4. Unstable selectors: Selectors like .button are too generic and may match multiple elements.
+
+Suggested improvements
+Use sync_playwright() as a context manager
+Remove unused Selenium dependency
+Replace time.sleep() with Playwright’s auto-wait or explicit waits
+Add meaningful assertions to validate the result
+Use more specific and stable selectors
+
+
+from playwright.sync_api import sync_playwright
+
+def test_search_functionality():
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page()
+
+        page.goto("https://example.com")
+
+        page.locator("#search").fill("playwright testing")
+        page.locator("button[type='submit']").click()
+
+        results = page.locator(".result-item")
+        assert results.count() > 0, "Expected search results, but none were found"
+
+        browser.close()
